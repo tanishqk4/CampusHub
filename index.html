@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoleRadar | Multi-Platform Job Aggregator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">RR</span>
+          <div>
+            <p class="eyebrow">Smart Job Discovery</p>
+            <h1>RoleRadar</h1>
+          </div>
+        </div>
+        <a class="ghost-link" href="#dashboard">Open Dashboard</a>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">One dashboard, many platforms</p>
+          <h2>Aggregate openings from LinkedIn, Naukri, Wellfound, Instahyre, career pages, and more.</h2>
+          <p class="hero-text">
+            Track the newest jobs in one place, rank them against your preferred role and skills,
+            and focus on the openings that actually fit your profile.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#dashboard">Explore Jobs</a>
+            <a class="secondary-btn" href="#pipeline">View Aggregation Flow</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <p class="card-label">Live Preference Summary</p>
+          <div class="preference-lines">
+            <div>
+              <span>Role Focus</span>
+              <strong id="hero-role">Frontend Engineer</strong>
+            </div>
+            <div>
+              <span>Top Skills</span>
+              <strong id="hero-skills">React, TypeScript, Design Systems</strong>
+            </div>
+            <div>
+              <span>Preferred Platforms</span>
+              <strong>LinkedIn, Wellfound, Instahyre</strong>
+            </div>
+          </div>
+          <div class="signal-band">
+            <span>Fresh openings prioritized</span>
+            <span>Skill match scoring enabled</span>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main id="dashboard" class="dashboard">
+      <section class="panel filters-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Profile Tuning</p>
+            <h3>Set your job preferences</h3>
+          </div>
+          <p class="panel-note">Results automatically re-rank by recency, role fit, and skills match.</p>
+        </div>
+
+        <form id="preferences-form" class="filters-grid">
+          <label>
+            Preferred role
+            <input id="preferred-role" type="text" value="Frontend Engineer" placeholder="Product Designer, Data Analyst..." />
+          </label>
+
+          <label>
+            Skills
+            <input id="preferred-skills" type="text" value="React, TypeScript, Design Systems" placeholder="Comma-separated skills" />
+          </label>
+
+          <label>
+            Experience level
+            <select id="experience-level">
+              <option value="all">All levels</option>
+              <option value="entry">Entry level</option>
+              <option value="mid" selected>Mid level</option>
+              <option value="senior">Senior level</option>
+            </select>
+          </label>
+
+          <label>
+            Source platform
+            <select id="source-platform">
+              <option value="all">All platforms</option>
+            </select>
+          </label>
+
+          <label>
+            Work mode
+            <select id="work-mode">
+              <option value="all">Remote, hybrid, onsite</option>
+              <option value="remote">Remote</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="onsite">Onsite</option>
+            </select>
+          </label>
+
+          <label>
+            Sort by
+            <select id="sort-order">
+              <option value="score">Best match</option>
+              <option value="date">Newest first</option>
+              <option value="salary">Highest salary</option>
+            </select>
+          </label>
+        </form>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <p>Total Listings</p>
+          <strong id="stat-total">0</strong>
+          <span>Across all connected sources</span>
+        </article>
+        <article class="stat-card">
+          <p>Fresh In 72h</p>
+          <strong id="stat-fresh">0</strong>
+          <span>Recent opportunities surfaced first</span>
+        </article>
+        <article class="stat-card">
+          <p>Top Source</p>
+          <strong id="stat-source">-</strong>
+          <span>Most openings in current filter</span>
+        </article>
+        <article class="stat-card">
+          <p>Average Match</p>
+          <strong id="stat-match">0%</strong>
+          <span>Alignment with your role and skills</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel list-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Unified Feed</p>
+              <h3>Job openings sorted for you</h3>
+            </div>
+            <p id="results-meta" class="panel-note">Loading openings...</p>
+          </div>
+          <div id="jobs-list" class="jobs-list"></div>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel insight-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Coverage</p>
+                <h3>Source breakdown</h3>
+              </div>
+            </div>
+            <div id="source-breakdown" class="source-breakdown"></div>
+          </section>
+
+          <section id="pipeline" class="panel pipeline-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Aggregation Flow</p>
+                <h3>How the platform works</h3>
+              </div>
+            </div>
+            <ol class="pipeline-list">
+              <li>Connect APIs, feeds, or scraping workers for LinkedIn, Naukri, Wellfound, Instahyre, and company career pages.</li>
+              <li>Normalize every posting into one schema: title, company, skills, source, posted date, work mode, and apply link.</li>
+              <li>Rank listings by freshness plus preference-fit scoring based on selected role, skills, and experience band.</li>
+              <li>Display everything in one dashboard so candidates can filter fast and apply without hopping platforms.</li>
+            </ol>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <template id="job-card-template">
+    <article class="job-card">
+      <div class="job-card-top">
+        <div>
+          <div class="job-meta-row">
+            <span class="platform-pill"></span>
+            <span class="date-pill"></span>
+          </div>
+          <h4 class="job-title"></h4>
+          <p class="job-company"></p>
+        </div>
+        <div class="match-badge"></div>
+      </div>
+      <div class="job-details"></div>
+      <div class="skill-tags"></div>
+      <div class="job-card-bottom">
+        <a class="apply-link" target="_blank" rel="noreferrer">Open posting</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
