@@ -14,13 +14,11 @@ import ResourceVaultPage from "./components/ResourceVaultPage";
 import Toast from "./components/Toast";
 import { createReminder, fetchDashboardData, fetchProfile, login, logout, markInterested, register } from "./lib/api";
 
-const navItems = [
+const baseNavItems = [
   { to: "/", label: "Dashboard", icon: Home },
   { to: "/feed", label: "Smart Feed", icon: BellRing },
   { to: "/lost-found", label: "Lost & Found", icon: SearchSlash },
-  { to: "/resources", label: "Resource Vault", icon: FolderKanban },
-  { to: "/login", label: "Login", icon: LogIn },
-  { to: "/register", label: "Register", icon: UserPlus }
+  { to: "/resources", label: "Resource Vault", icon: FolderKanban }
 ];
 
 export default function App() {
@@ -52,6 +50,13 @@ export default function App() {
   });
   const location = useLocation();
   const navigate = useNavigate();
+  const navItems = profile
+    ? baseNavItems
+    : [
+        ...baseNavItems,
+        { to: "/login", label: "Login", icon: LogIn },
+        { to: "/register", label: "Register", icon: UserPlus }
+      ];
 
   useEffect(() => {
     const timer = toast ? setTimeout(() => setToast(null), 2600) : null;
