@@ -2,8 +2,8 @@ export default function FilterBar({ filters, setFilters, departments, tags }) {
   return (
     <div className="glass-panel flex flex-col gap-4 p-5 lg:flex-row lg:items-center lg:justify-between">
       <div>
-        <p className="font-display text-xl font-bold">Advanced Filters</p>
-        <p className="text-sm text-ink/65">Hide or show campus content by department, category, and date direction.</p>
+        <p className="font-display text-xl font-bold">Filters</p>
+        <p className="text-sm text-ink/65">Refine results by department, category, and item status.</p>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -44,13 +44,12 @@ export default function DashboardPage({
         <div className="grid-wash absolute inset-0 opacity-70" />
         <div className="relative grid gap-6 lg:grid-cols-[1.4fr_0.9fr]">
           <div className="space-y-4">
-            <p className="font-display text-sm uppercase tracking-[0.3em] text-ink/60">Unified Student Command Center</p>
+            <p className="font-display text-sm uppercase tracking-[0.3em] text-ink/60">CampusHub</p>
             <h1 className="max-w-[12ch] font-display text-4xl font-bold leading-none text-ink lg:text-6xl">
-              CampusHub brings signal back to student life.
+              Keep up with campus updates without the clutter.
             </h1>
             <p className="max-w-2xl text-base leading-7 text-ink/70">
-              A single source of truth for announcements, events, academic resources, and lost-and-found activity, designed
-              to cut through noisy chat groups and scattered notices.
+              Check announcements, upcoming events, academic resources, and lost-and-found posts from one dashboard.
             </p>
             <div className="flex flex-wrap gap-3">
               <button className="rounded-full bg-ember px-5 py-3 text-sm font-semibold text-white" onClick={onOpenPostModal}>
@@ -69,34 +68,34 @@ export default function DashboardPage({
             <div className="rounded-[24px] bg-white/80 p-5">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink/70">
                 <Siren size={16} />
-                Urgent Alerts
+                Alerts
               </div>
               <p className="font-display text-3xl font-bold">{data.announcements.filter((item) => item.is_urgent).length}</p>
-              <p className="mt-2 text-sm text-ink/60">Academic warnings surfaced first.</p>
+              <p className="mt-2 text-sm text-ink/60">Urgent academic notices.</p>
             </div>
             <div className="rounded-[24px] bg-pine p-5 text-white">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white/70">
                 <Sparkles size={16} />
-                Smart Feed
+                Feed
               </div>
               <p className="font-display text-3xl font-bold">{data.announcements.length + data.events.length}</p>
-              <p className="mt-2 text-sm text-white/70">Unified updates across campus life.</p>
+              <p className="mt-2 text-sm text-white/70">Announcements and events.</p>
             </div>
             <div className="rounded-[24px] bg-white/80 p-5">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink/70">
                 <FolderOpen size={16} />
-                Resource Vault
+                Resources
               </div>
               <p className="font-display text-3xl font-bold">{data.resources.length}</p>
-              <p className="mt-2 text-sm text-ink/60">Syllabus, PYQs, notes, and guides.</p>
+              <p className="mt-2 text-sm text-ink/60">Syllabus, papers, notes.</p>
             </div>
             <div className="rounded-[24px] bg-gold/20 p-5">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink/70">
                 <Search size={16} />
-                Fast Lookup
+                Search
               </div>
               <p className="font-display text-3xl font-bold">3s</p>
-              <p className="mt-2 text-sm text-ink/60">Target time to find what matters.</p>
+              <p className="mt-2 text-sm text-ink/60">Quick access to key updates.</p>
             </div>
           </div>
         </div>
@@ -107,7 +106,7 @@ export default function DashboardPage({
           <div className="mb-5 flex items-center justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Bento</p>
-              <h2 className="font-display text-2xl font-bold">Official Announcements</h2>
+              <h2 className="font-display text-2xl font-bold">Announcements</h2>
             </div>
             <Megaphone className="text-ember" />
           </div>

@@ -10,8 +10,8 @@ export default function ResourceVaultPage({ resources, filters }) {
   return (
     <section className="glass-panel p-6">
       <div className="mb-6">
-        <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Campus Resource Vault</p>
-        <h1 className="font-display text-3xl font-bold">Find documents in under 3 seconds</h1>
+        <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Resources</p>
+        <h1 className="font-display text-3xl font-bold">Academic resources</h1>
       </div>
 
       <div className="grid gap-4">
@@ -33,7 +33,7 @@ export default function ResourceVaultPage({ resources, filters }) {
               rel="noreferrer"
               className="inline-flex rounded-full bg-pine px-5 py-3 text-sm font-semibold text-white"
             >
-              Open Folder
+              Open File
             </a>
           </article>
         ))}

@@ -16,7 +16,7 @@ export default function LostFoundPage({ items, filters, onOpenLostFoundModal }) 
       <section className="glass-panel p-6">
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Visual Board</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Lost & Found</p>
             <h1 className="font-display text-3xl font-bold">Lost & Found</h1>
           </div>
           <button className="rounded-full bg-ember px-5 py-3 text-sm font-semibold text-white" onClick={onOpenLostFoundModal}>Report Item</button>
@@ -53,9 +53,7 @@ export default function LostFoundPage({ items, filters, onOpenLostFoundModal }) 
           <div className="glass-panel w-full max-w-lg p-6">
             <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Contact Details</p>
             <h2 className="mt-2 font-display text-3xl font-bold">{selectedItem.item_name}</h2>
-            <p className="mt-3 text-sm leading-7 text-ink/70">
-              Reach out to coordinate handoff or confirm ownership.
-            </p>
+            <p className="mt-3 text-sm leading-7 text-ink/70">Use the contact details below to follow up.</p>
             <div className="mt-5 space-y-2 rounded-[24px] bg-white/80 p-4">
               <p><span className="font-semibold">Name:</span> {selectedItem.contact_name}</p>
               <p><span className="font-semibold">Email:</span> {selectedItem.contact_email}</p>

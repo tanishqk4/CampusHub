@@ -225,7 +225,7 @@ export default function App() {
               CH
             </div>
             <h1 className="mt-4 font-display text-3xl font-bold">CampusHub</h1>
-            <p className="mt-2 text-sm leading-7 text-ink/70">The unified student command center for campus updates, resources, and community help.</p>
+            <p className="mt-2 text-sm leading-7 text-ink/70">Campus announcements, events, resources, and lost-and-found in one place.</p>
           </div>
 
           <nav className="space-y-2">
@@ -250,11 +250,11 @@ export default function App() {
           <div className="mt-8 rounded-[24px] bg-ink p-5 text-white">
             <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-white/70">
               <ShieldCheck size={16} />
-              Auth State
+              Account
             </div>
             <p className="font-display text-2xl font-bold">{profile ? profile.username : "Guest"}</p>
             <p className="mt-2 text-sm text-white/70">
-              {profile ? "Protected actions are enabled with JWT." : "Login to use reminders and interested actions."}
+              {profile ? "You can post updates, set reminders, and manage actions." : "Login to save reminders and mark interest."}
             </p>
             {profile && (
               <button className="mt-4 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink" onClick={handleLogout}>
@@ -267,7 +267,7 @@ export default function App() {
         <main className="space-y-6">
           {data.offline && (
             <div className="glass-panel border border-gold/30 bg-gold/20 p-4 text-sm text-ink/80">
-              Backend is currently unreachable, so the UI is showing mock campus data. Start Django to see live API data.
+              Backend is unavailable. Showing sample data for now.
             </div>
           )}
 

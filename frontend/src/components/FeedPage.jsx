@@ -26,8 +26,8 @@ export default function FeedPage({ data, filters, onInterested, onRemindMe, onOp
     <section className="glass-panel p-6">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Smart Feed</p>
-          <h1 className="font-display text-3xl font-bold">Unified campus updates</h1>
+          <p className="text-sm uppercase tracking-[0.24em] text-ink/50">Feed</p>
+          <h1 className="font-display text-3xl font-bold">Campus updates</h1>
         </div>
         <button className="rounded-full bg-ember px-5 py-3 text-sm font-semibold text-white" onClick={onOpenPostModal}>Add Post</button>
       </div>

@@ -15,10 +15,7 @@ export default function AuthPage({ mode, onSubmit }) {
     <section className="mx-auto max-w-2xl">
       <div className="glass-panel p-8">
         <p className="text-sm uppercase tracking-[0.24em] text-ink/50">{isRegister ? "Create account" : "Welcome back"}</p>
-        <h1 className="mt-2 font-display text-4xl font-bold">{isRegister ? "Register for CampusHub" : "Login to CampusHub"}</h1>
-        <p className="mt-3 max-w-xl text-sm leading-7 text-ink/70">
-          Use JWT-based authentication to manage announcements, reminders, and lost-and-found reports securely.
-        </p>
+        <h1 className="mt-2 font-display text-4xl font-bold">{isRegister ? "Create your account" : "Sign in"}</h1>
 
         <form
           className="mt-6 grid gap-4"
@@ -70,14 +67,14 @@ export default function AuthPage({ mode, onSubmit }) {
           />
 
           <button className="rounded-full bg-ember px-5 py-3 text-sm font-semibold text-white">
-            {isRegister ? "Create account" : "Login"}
+            {isRegister ? "Create account" : "Sign in"}
           </button>
         </form>
 
         <p className="mt-5 text-sm text-ink/65">
           {isRegister ? "Already have an account?" : "Need an account?"}{" "}
           <Link className="font-semibold text-pine" to={isRegister ? "/login" : "/register"}>
-            {isRegister ? "Login here" : "Create one here"}
+            {isRegister ? "Sign in" : "Register"}
           </Link>
         </p>
       </div>
