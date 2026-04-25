@@ -230,9 +230,11 @@ export default function App() {
       <div className="mx-auto grid min-h-screen max-w-[1500px] gap-6 px-4 py-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:px-6 lg:py-6">
         <aside className="glass-panel h-fit p-5 lg:sticky lg:top-6">
           <div className="mb-8">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ember font-display text-xl font-bold text-white">
-              CH
-            </div>
+            <img
+              src="/campushub-logo.png"
+              alt="CampusHub logo"
+              className="h-16 w-16 rounded-2xl border border-ink/10 bg-white object-cover shadow-sm"
+            />
             <h1 className="mt-4 font-display text-3xl font-bold">CampusHub</h1>
             <p className="mt-2 text-sm leading-7 text-ink/70">Campus announcements, events, resources, and lost-and-found in one place.</p>
           </div>
