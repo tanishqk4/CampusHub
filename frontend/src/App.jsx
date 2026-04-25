@@ -208,6 +208,15 @@ export default function App() {
     showToast("Item reported", "Your lost or found item is now visible on the board.", "success");
   }
 
+  function requireLogin(actionLabel, callback) {
+    if (!profile) {
+      showToast("Login required", `Please sign in to ${actionLabel}.`, "error");
+      navigate("/login");
+      return;
+    }
+    callback();
+  }
+
   function isInterested(eventId) {
     return interestedEventIds.includes(eventId);
   }
@@ -282,8 +291,8 @@ export default function App() {
                   filters={filters}
                   onInterested={handleInterested}
                   onRemindMe={handleRemindMe}
-                  onOpenPostModal={() => setActiveModal("post")}
-                  onOpenLostFoundModal={() => setActiveModal("lost-found")}
+                  onOpenPostModal={() => requireLogin("add a post", () => setActiveModal("post"))}
+                  onOpenLostFoundModal={() => requireLogin("report an item", () => setActiveModal("lost-found"))}
                   isInterested={isInterested}
                   isReminded={isReminded}
                 />
@@ -297,7 +306,7 @@ export default function App() {
                   filters={filters}
                   onInterested={handleInterested}
                   onRemindMe={handleRemindMe}
-                  onOpenPostModal={() => setActiveModal("post")}
+                  onOpenPostModal={() => requireLogin("add a post", () => setActiveModal("post"))}
                   isInterested={isInterested}
                   isReminded={isReminded}
                 />
@@ -305,7 +314,13 @@ export default function App() {
             />
             <Route
               path="/lost-found"
-              element={<LostFoundPage items={data.lostFoundItems} filters={filters} onOpenLostFoundModal={() => setActiveModal("lost-found")} />}
+              element={
+                <LostFoundPage
+                  items={data.lostFoundItems}
+                  filters={filters}
+                  onOpenLostFoundModal={() => requireLogin("report an item", () => setActiveModal("lost-found"))}
+                />
+              }
             />
             <Route path="/resources" element={<ResourceVaultPage resources={data.resources} filters={filters} />} />
             <Route path="/login" element={<AuthPage mode="login" onSubmit={handleLogin} />} />
