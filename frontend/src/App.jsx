@@ -226,9 +226,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="mx-auto grid min-h-screen max-w-[1500px] gap-6 px-4 py-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:px-6 lg:py-6">
-        <aside className="glass-panel h-fit p-5 lg:sticky lg:top-6">
+    <div className="min-h-screen lg:h-screen lg:overflow-hidden">
+      <div className="mx-auto grid min-h-screen max-w-[1500px] gap-6 px-4 py-4 lg:h-screen lg:grid-cols-[280px_minmax(0,1fr)] lg:overflow-hidden lg:px-6 lg:py-6">
+        <aside className="glass-panel h-fit p-5 lg:h-full lg:overflow-y-auto">
           <div className="mb-8">
             <img
               src="/campushub-logo.png"
@@ -275,7 +275,7 @@ export default function App() {
           </div>
         </aside>
 
-        <main className="space-y-6">
+        <main className="space-y-6 lg:h-full lg:overflow-y-auto lg:pr-1">
           {data.offline && (
             <div className="glass-panel border border-gold/30 bg-gold/20 p-4 text-sm text-ink/80">
               Backend is unavailable. Showing sample data for now.
