@@ -228,14 +228,16 @@ export default function App() {
   return (
     <div className="min-h-screen lg:h-screen lg:overflow-hidden">
       <div className="mx-auto grid min-h-screen max-w-[1500px] gap-6 px-4 py-4 lg:h-screen lg:grid-cols-[280px_minmax(0,1fr)] lg:overflow-hidden lg:px-6 lg:py-6">
-        <aside className="glass-panel h-fit p-5 lg:h-full lg:overflow-y-auto">
+        <aside className="glass-panel h-fit p-5 lg:h-full lg:overflow-y-auto scrollbar-hidden">
           <div className="mb-8">
-            <img
-              src="/campushub-logo.png"
-              alt="CampusHub logo"
-              className="h-16 w-16 rounded-2xl border border-ink/10 bg-white object-cover shadow-sm"
-            />
-            <h1 className="mt-4 font-display text-3xl font-bold">CampusHub</h1>
+            <div className="flex items-center gap-3">
+              <img
+                src="/campushub-mark.png"
+                alt="CampusHub logo"
+                className="h-14 w-14 rounded-2xl border border-ink/10 bg-white object-cover shadow-sm"
+              />
+              <h1 className="font-display text-3xl font-bold">CampusHub</h1>
+            </div>
             <p className="mt-2 text-sm leading-7 text-ink/70">Campus announcements, events, resources, and lost-and-found in one place.</p>
           </div>
 
@@ -275,7 +277,7 @@ export default function App() {
           </div>
         </aside>
 
-        <main className="space-y-6 lg:h-full lg:overflow-y-auto lg:pr-1">
+        <main className="space-y-6 lg:h-full lg:overflow-y-auto lg:pr-1 scrollbar-hidden">
           {data.offline && (
             <div className="glass-panel border border-gold/30 bg-gold/20 p-4 text-sm text-ink/80">
               Backend is unavailable. Showing sample data for now.
